@@ -20,4 +20,4 @@ npm test -- --watch
 
 ## Credits
 
-Originally based upon the starter template [React Hot Boilerplate](https://github.com/gaearon/react-hot-boilerplate).
+webpack setup based on [React Hot Boilerplate](https://github.com/gaearon/react-hot-boilerplate).

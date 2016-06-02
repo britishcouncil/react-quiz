@@ -1,9 +1,12 @@
 import React from 'react'
+import Question from './Question'
 
-export default class Quiz extends React.Component {
+class Quiz extends React.Component {
   render () {
     return (
-      <div>Hello from Quiz!</div>
+      <Question {...this.props.question} />
     )
   }
 }
+
+export default Quiz

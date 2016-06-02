@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gaearon/react-hot-boilerplate.git"
+    "url": "https://github.com/britishcouncil/react-quiz.git"
   },
   "keywords": [
     "react",
     "reactjs",
     "react-component"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "British Council",
+  "license": "MIT",
   "devDependencies": {
     "react": "^15.0.2",
     "react-dom": "^15.0.2",

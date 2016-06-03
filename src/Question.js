@@ -24,4 +24,11 @@ class Question extends React.Component {
   }
 }
 
+Question.propTypes = {
+  instruction: React.PropTypes.string,
+  text: React.PropTypes.string.isRequired,
+  correct: React.PropTypes.number,
+  answers: React.PropTypes.array.isRequired
+}
+
 export default Question

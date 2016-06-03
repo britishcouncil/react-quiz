@@ -19,7 +19,7 @@ class Question extends React.Component {
                     onClick={() => this.setState({ selectedAnswer: i })}>{a}</Answer>
           ))}
         </ul>
-    </div>
+      </div>
     )
   }
 }

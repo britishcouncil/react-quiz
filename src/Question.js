@@ -2,11 +2,8 @@ import React from 'react'
 import Answer from './Answer'
 
 class Question extends React.Component {
-  constructor () {
-    super()
-    this.state = {
-      selectedAnswer: null
-    }
+  state = {
+    selectedAnswer: null
   }
 
   render () {

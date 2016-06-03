@@ -3,8 +3,12 @@ import Question from './Question'
 
 class Quiz extends React.Component {
   render () {
+    const { title, question } = this.props
     return (
-      <Question {...this.props.question} />
+      <div>
+        <h1>{title}</h1>
+        <Question {...question} />
+      </div>
     )
   }
 }

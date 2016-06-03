@@ -16,7 +16,7 @@ export default class App extends Component {
 
     return (
       <div className="App">
-        <Quiz question={question} />
+        <Quiz title="Check your level" question={question} />
       </div>
     )
   }

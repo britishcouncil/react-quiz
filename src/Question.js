@@ -15,11 +15,13 @@ class Question extends React.Component {
       <div>
         <p>{instruction}</p>
         <p>{text}</p>
-        {answers.map((a, i) => (
-          <Answer key={i}
-                  active={i === this.state.selectedAnswer}
-                  onClick={() => this.setState({ selectedAnswer: i })}>{a}</Answer>
-        ))}
+        <ul>
+          {answers.map((a, i) => (
+            <Answer key={i}
+                    active={i === this.state.selectedAnswer}
+                    onClick={() => this.setState({ selectedAnswer: i })}>{a}</Answer>
+          ))}
+        </ul>
     </div>
     )
   }

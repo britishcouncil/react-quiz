@@ -1,8 +1,10 @@
 import React from 'react'
 
 const Answer = ({ active, onClick, children }) => (
-  <div onClick={onClick}
-       className={active ? 'active' : null}>{children}</div>
+  <li>
+    <button onClick={onClick}
+            className={active ? 'active' : null}>{children}</button>
+  </li>
 )
 
 export default Answer

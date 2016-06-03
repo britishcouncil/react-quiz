@@ -1,0 +1,13 @@
+ul {
+  list-style: none;
+}
+button {
+  border: none;
+  background-color: #ccc;
+  outline: 0;
+}
+
+.active {
+  background-color: #333;
+  color: white;
+}

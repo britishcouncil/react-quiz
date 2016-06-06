@@ -18,8 +18,9 @@ const Question = ({instruction, text, answers, selectedAnswer, onAnswer}) => (
 Question.propTypes = {
   instruction: React.PropTypes.string,
   text: React.PropTypes.string.isRequired,
-  correct: React.PropTypes.number,
-  answers: React.PropTypes.array.isRequired
+  answers: React.PropTypes.array.isRequired,
+  selectedAnswer: React.PropTypes.number,
+  onAnswer: React.PropTypes.func
 }
 
 export default Question

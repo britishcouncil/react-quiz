@@ -19,6 +19,9 @@ class Question extends React.Component {
                     onClick={() => this.setState({ selectedAnswer: i })}>{a}</Answer>
           ))}
         </ul>
+        <div className="Quiz-buttonContainer">
+          <button>Next question</button>
+        </div>
       </div>
     )
   }

@@ -42,6 +42,7 @@
     "webpack-dev-server": "^1.12.1"
   },
   "dependencies": {
+    "classnames": "^2.2.5"
   },
   "ava": {
     "babel": "inherit",

@@ -1,31 +1,19 @@
 import React from 'react'
 import Answer from './Answer'
 
-class Question extends React.Component {
-  state = {
-    selectedAnswer: null
-  }
-
-  render () {
-    const { instruction, text, answers, onClickNext, nextButtonText = 'Next' } = this.props
-    return (
-      <div>
-        <p>{instruction}</p>
-        <p>{text}</p>
-        <ul>
-          {answers.map((a, i) => (
-            <Answer key={i}
-                    active={i === this.state.selectedAnswer}
-                    onClick={() => this.setState({ selectedAnswer: i })}>{a}</Answer>
-          ))}
-        </ul>
-        <div className="Quiz-buttonContainer">
-          <button onClick={onClickNext}>{nextButtonText}</button>
-        </div>
-      </div>
-    )
-  }
-}
+const Question = ({instruction, text, answers, selectedAnswer, onAnswer}) => (
+  <div>
+    <p>{instruction}</p>
+    <p>{text}</p>
+    <ul>
+      {answers.map((a, i) => (
+        <Answer key={i}
+                active={i === selectedAnswer}
+                onClick={() => onAnswer(i)}>{a}</Answer>
+      ))}
+    </ul>
+  </div>
+)
 
 Question.propTypes = {
   instruction: React.PropTypes.string,

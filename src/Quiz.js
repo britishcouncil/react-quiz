@@ -10,19 +10,19 @@ class Quiz extends React.Component {
   render () {
     const { title, questions } = this.props
     const { answers, currentQuestionIndex } = this.state
-    const isLastQuestion = (this.state.currentQuestionIndex + 1) === this.props.questions.length
+    const isLastQuestion = (currentQuestionIndex + 1) === questions.length
 
     const onAnswer = (selectedAnswer) => {
       this.setState({
         ...this.state,
         answers: {
-          ...this.state.answers,
-          [this.state.currentQuestionIndex]: selectedAnswer
+          ...answers,
+          [currentQuestionIndex]: selectedAnswer
         }})
     }
 
     const onNext = () => this.setState({
-      currentQuestionIndex: this.state.currentQuestionIndex + 1
+      currentQuestionIndex: currentQuestionIndex + 1
     })
 
     const onFinished = () => {

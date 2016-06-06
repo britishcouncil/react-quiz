@@ -2,12 +2,28 @@ import React from 'react'
 import Question from './Question'
 
 class Quiz extends React.Component {
+  state = {
+    currentQuestionIndex: 0
+  }
+
+  isLastQuestion = () => (this.state.currentQuestionIndex + 1) === this.props.questions.length
+
+  onClickNext = () => {
+    if (this.isLastQuestion()) {
+      // Nothing atm
+    } else {
+      this.setState({currentQuestionIndex: this.state.currentQuestionIndex + 1})
+    }
+  }
+
   render () {
-    const { title, question } = this.props
+    const { title, questions } = this.props
     return (
       <div>
         <h1>{title}</h1>
-        <Question {...question} />
+        <Question nextButtonText={this.isLastQuestion() ? 'Finish' : 'Next'}
+                  onClickNext={this.onClickNext}
+                  {...questions[this.state.currentQuestionIndex]} />
       </div>
     )
   }
@@ -15,8 +31,7 @@ class Quiz extends React.Component {
 
 Quiz.propTypes = {
   title: React.PropTypes.string,
-  // Note: This will change to be a list of questions.
-  question: React.PropTypes.object.isRequired
+  questions: React.PropTypes.array.isRequired
 }
 
 export default Quiz

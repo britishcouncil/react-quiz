@@ -7,7 +7,7 @@ class Question extends React.Component {
   }
 
   render () {
-    const { instruction, text, answers } = this.props
+    const { instruction, text, answers, onClickNext, nextButtonText = 'Next' } = this.props
     return (
       <div>
         <p>{instruction}</p>
@@ -20,7 +20,7 @@ class Question extends React.Component {
           ))}
         </ul>
         <div className="Quiz-buttonContainer">
-          <button>Next question</button>
+          <button onClick={onClickNext}>{nextButtonText}</button>
         </div>
       </div>
     )

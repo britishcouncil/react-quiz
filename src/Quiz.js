@@ -7,19 +7,19 @@ class Quiz extends React.Component {
     answers: {}
   }
 
-  isLastQuestion = () => (this.state.currentQuestionIndex + 1) === this.props.questions.length
-
-  onClickNext = () => {
-    if (this.isLastQuestion()) {
-      // To be implemented
-    } else {
-      this.setState({currentQuestionIndex: this.state.currentQuestionIndex + 1})
-    }
-  }
-
   render () {
     const { title, questions } = this.props
     const { answers, currentQuestionIndex } = this.state
+    const isLastQuestion = (this.state.currentQuestionIndex + 1) === this.props.questions.length
+
+    const onClickNext = () => {
+      if (isLastQuestion) {
+        // To be implemented
+      } else {
+        this.setState({currentQuestionIndex: this.state.currentQuestionIndex + 1})
+      }
+    }
+
     const onAnswer = (selectedAnswer) => {
       this.setState({
         ...this.state,
@@ -36,7 +36,7 @@ class Quiz extends React.Component {
                   selectedAnswer={answers[currentQuestionIndex]}
                   {...questions[currentQuestionIndex]} />
         <div className="Quiz-buttonContainer">
-          <button onClick={this.onClickNext}>{this.isLastQuestion() ? 'Finish' : 'Next'}</button>
+          <button onClick={onClickNext}>{isLastQuestion ? 'Finish' : 'Next'}</button>
         </div>
       </div>
     )

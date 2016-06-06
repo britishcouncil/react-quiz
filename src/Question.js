@@ -7,7 +7,7 @@ class Question extends React.Component {
   }
 
   render () {
-    const { instruction, text, correct, answers } = this.props
+    const { instruction, text, answers } = this.props
     return (
       <div>
         <p>{instruction}</p>
@@ -17,7 +17,7 @@ class Question extends React.Component {
             <Answer key={i}
                     active={i === this.state.selectedAnswer}
                     onClick={() => this.setState({ selectedAnswer: i })}>{a}</Answer>
-          ))}
+          ))}``
         </ul>
       </div>
     )

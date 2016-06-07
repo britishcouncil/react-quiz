@@ -25,7 +25,12 @@ const Quiz = ({ title, questions, answers, currentQuestionIndex, onAnswer,
 
 Quiz.propTypes = {
   title: React.PropTypes.string,
-  questions: React.PropTypes.array.isRequired
+  questions: React.PropTypes.array.isRequired,
+  answers: React.PropTypes.object.isRequired,
+  currentQuestionIndex: React.PropTypes.number.isRequired,
+  onAnswer: React.PropTypes.func.isRequired,
+  onNext: React.PropTypes.func.isRequired,
+  onFinished: React.PropTypes.func.isRequired
 }
 
 export default Quiz

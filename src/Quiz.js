@@ -14,9 +14,9 @@ const Quiz = ({ title, questions, answers, currentQuestionIndex, onAnswer,
       <div className="Quiz-buttonContainer">
         {isLastQuestion
           ? <button onClick={onFinished}
-                    disabled={!answers[currentQuestionIndex]}>Finish</button>
+                    disabled={answers[currentQuestionIndex] === undefined}>Finish</button>
           : <button onClick={onNext}
-                    disabled={!answers[currentQuestionIndex]}>Next</button>
+                    disabled={answers[currentQuestionIndex] === undefined}>Next</button>
         }
       </div>
     </div>

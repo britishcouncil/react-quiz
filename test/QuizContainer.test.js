@@ -56,7 +56,7 @@ test('Next button is enabled when an answer is selected', t => {
   w.setState({
     currentQuestionIndex: 0,
     answers: {
-      0: 2
+      0: 0
     }
   })
 
@@ -75,7 +75,7 @@ test('Finish button is enabled when an answer is selected', t => {
   w.setState({
     currentQuestionIndex: questions.length - 1,
     answers: {
-      [questions.length - 1]: 2
+      [questions.length - 1]: 0
     }
   })
 

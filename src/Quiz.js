@@ -1,51 +1,26 @@
 import React from 'react'
 import Question from './Question'
 
-class Quiz extends React.Component {
-  state = {
-    currentQuestionIndex: 0,
-    answers: {}
-  }
+const Quiz = ({ title, questions, answers, currentQuestionIndex, onAnswer,
+  onNext, onFinished }) => {
+  const isLastQuestion = (currentQuestionIndex + 1) === questions.length
 
-  render () {
-    const { title, questions } = this.props
-    const { answers, currentQuestionIndex } = this.state
-    const isLastQuestion = (currentQuestionIndex + 1) === questions.length
-
-    const onAnswer = (selectedAnswer) => {
-      this.setState({
-        ...this.state,
-        answers: {
-          ...answers,
-          [currentQuestionIndex]: selectedAnswer
-        }})
-    }
-
-    const onNext = () => this.setState({
-      currentQuestionIndex: currentQuestionIndex + 1
-    })
-
-    const onFinished = () => {
-      // To be implemented
-    }
-
-    return (
-      <div>
-        <h1>{title}</h1>
-        <Question onAnswer={onAnswer}
-                  selectedAnswer={answers[currentQuestionIndex]}
-                  {...questions[currentQuestionIndex]} />
-        <div className="Quiz-buttonContainer">
-          {isLastQuestion
-            ? <button onClick={onFinished}
-                      disabled={!answers[currentQuestionIndex]}>Finish</button>
-            : <button onClick={onNext}
-                      disabled={!answers[currentQuestionIndex]}>Next</button>
-          }
-        </div>
+  return (
+    <div>
+      <h1>{title}</h1>
+      <Question onAnswer={onAnswer}
+                selectedAnswer={answers[currentQuestionIndex]}
+                {...questions[currentQuestionIndex]} />
+      <div className="Quiz-buttonContainer">
+        {isLastQuestion
+          ? <button onClick={onFinished}
+                    disabled={!answers[currentQuestionIndex]}>Finish</button>
+          : <button onClick={onNext}
+                    disabled={!answers[currentQuestionIndex]}>Next</button>
+        }
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 Quiz.propTypes = {

@@ -4,9 +4,10 @@ import { shallow } from 'enzyme'
 import Quiz from '../src/Quiz'
 import questions from './_questions'
 
-/*
-  Structure
-*/
+const findFirstAnswer = (w) => w.find('Question').first().shallow().find('Answer').first()
+const findNextButton = (w) => w.findWhere(el => el.matchesElement(<button>Next</button>))
+const findFinishButton = (w) => w.findWhere(el => el.matchesElement(<button>Finish</button>))
+
 
 test('renders title', t => {
   const w = shallow(<Quiz title="The quiz title" questions={questions} />)
@@ -35,26 +36,18 @@ test('renders Finish button if last question', t => {
   t.is(w.find('button').text(), 'Finish')
 })
 
-
-/*
-  Behaviour
-*/
-
 test('clicking on an answer sets it to active', t => {
   const w = shallow(<Quiz questions={questions} />)
-  const findFirstAnswer = () => w.find('Question').first().shallow()
-    .find('Answer').first()
 
-  findFirstAnswer().shallow().find('button').simulate('click')
+  findFirstAnswer(w).shallow().find('button').simulate('click')
   w.update()
 
-  t.true(findFirstAnswer().prop('active'))
+  t.true(findFirstAnswer(w).prop('active'))
 })
 
 test('Next button is disabled by default', t => {
   const w = shallow(<Quiz questions={questions} />)
-  const findNextButton = () => w.findWhere(el => el.matchesElement(<button>Next</button>))
-  t.truthy(findNextButton().prop('disabled'))
+  t.truthy(findNextButton(w).prop('disabled'))
 })
 
 test('Next button is enabled when an answer is selected', t => {
@@ -68,14 +61,12 @@ test('Next button is enabled when an answer is selected', t => {
     }
   })
 
-  const findNextButton = () => w.findWhere(el => el.matchesElement(<button>Next</button>))
-  t.false(findNextButton().prop('disabled'))
+  t.false(findNextButton(w).prop('disabled'))
 })
 
 test('Finish button is disabled by default', t => {
   const w = shallow(<Quiz questions={[questions[questions.length - 1]]} />)
-  const findFinishButton = () => w.findWhere(el => el.matchesElement(<button>Finish</button>))
-  t.truthy(findFinishButton().prop('disabled'))
+  t.truthy(findFinishButton(w).prop('disabled'))
 })
 
 test('Finish button is enabled when an answer is selected', t => {
@@ -89,13 +80,11 @@ test('Finish button is enabled when an answer is selected', t => {
     }
   })
 
-  const findFinishButton = () => w.findWhere(el => el.matchesElement(<button>Finish</button>))
-  t.false(findFinishButton().prop('disabled'))
+  t.false(findFinishButton(w).prop('disabled'))
 })
 
 test('clicking Next renders the next question', t => {
   const w = shallow(<Quiz questions={questions} />)
-  const findNextButton = () => w.findWhere(el => el.matchesElement(<button>Next</button>))
 
   // First question, second answer selected.
   w.setState({
@@ -105,6 +94,6 @@ test('clicking Next renders the next question', t => {
     }
   })
 
-  findNextButton().simulate('click')
+  findNextButton(w).simulate('click')
   t.is(w.find('Question').prop('text'), questions[1].text)
 })

@@ -13,31 +13,31 @@ class QuizContainer extends React.Component {
     answers: {}
   }
 
+  onAnswer = (selectedAnswer) => {
+    this.setState({
+      ...this.state,
+      answers: {
+        ...this.state.answers,
+        [this.state.currentQuestionIndex]: selectedAnswer
+      }})
+  }
+
+  onNext = () => this.setState({
+    currentQuestionIndex: this.state.currentQuestionIndex + 1
+  })
+
+  onFinished = () => {
+    // To be implemented
+  }
+
   render () {
-    const onAnswer = (selectedAnswer) => {
-      this.setState({
-        ...this.state,
-        answers: {
-          ...this.state.answers,
-          [this.state.currentQuestionIndex]: selectedAnswer
-        }})
-    }
-
-    const onNext = () => this.setState({
-      currentQuestionIndex: this.state.currentQuestionIndex + 1
-    })
-
-    const onFinished = () => {
-      // To be implemented
-    }
-
     return <Quiz title={this.props.title}
                  questions={this.props.questions}
                  currentQuestionIndex={this.state.currentQuestionIndex}
                  answers={this.state.answers}
-                 onAnswer={onAnswer}
-                 onNext={onNext}
-                 onFinished={onFinished} />
+                 onAnswer={this.onAnswer}
+                 onNext={this.onNext}
+                 onFinished={this.onFinished} />
   }
 }
 

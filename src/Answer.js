@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 
-const Answer = ({ active = false, onClick, children }) => (
+const Answer = ({ active, onClick, children }) => (
   <li>
     <button onClick={onClick}
             className={classNames('Quiz-answer', {active: active})}>{children}</button>

@@ -37,8 +37,11 @@ class Quiz extends React.Component {
                   {...questions[currentQuestionIndex]} />
         <div className="Quiz-buttonContainer">
           {isLastQuestion
-            ? <button onClick={onFinished}>Finish</button>
-            : <button onClick={onNext}>Next</button>}
+            ? <button onClick={onFinished}
+                      disabled={!answers[currentQuestionIndex]}>Finish</button>
+            : <button onClick={onNext}
+                      disabled={!answers[currentQuestionIndex]}>Next</button>
+          }
         </div>
       </div>
     )

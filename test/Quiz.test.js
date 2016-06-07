@@ -23,22 +23,11 @@ test('renders the first question', t => {
 
 test('clicking on an answer sets it to active', t => {
   const w = shallow(<Quiz questions={questions} />)
-    // Question
-  w.find('Question').first().shallow()
-    // First answer
-   .find('Answer').first().shallow()
-   // Click the answer
-   .find('button').simulate('click')
+  const findFirstAnswer = () => w.find('Question').first().shallow()
+    .find('Answer').first()
 
-  // Update
+  findFirstAnswer().shallow().find('button').simulate('click')
   w.update()
 
-  t.true(
-    // Question
-    w.find('Question').first().shallow()
-    // First answer
-     .find('Answer').first()
-    // Is active
-     .prop('active')
-  )
+  t.true(findFirstAnswer().prop('active'))
 })

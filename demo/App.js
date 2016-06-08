@@ -6,7 +6,9 @@ export default class App extends Component {
   render () {
     return (
       <div className="App">
-        <QuizContainer title="Check your level" questions={questions} />
+        <QuizContainer title="Check your level"
+                       questions={questions}
+                       onFinished={() => console.log('onFinished() to be implemented')} />
       </div>
     )
   }

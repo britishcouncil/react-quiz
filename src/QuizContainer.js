@@ -26,10 +26,6 @@ class QuizContainer extends React.Component {
     currentQuestionIndex: this.state.currentQuestionIndex + 1
   })
 
-  onFinished = () => {
-    // To be implemented
-  }
-
   render () {
     return <Quiz title={this.props.title}
                  questions={this.props.questions}
@@ -37,13 +33,14 @@ class QuizContainer extends React.Component {
                  answers={this.state.answers}
                  onAnswer={this.onAnswer}
                  onNext={this.onNext}
-                 onFinished={this.onFinished} />
+                 onFinished={this.props.onFinished} />
   }
 }
 
 QuizContainer.propTypes = {
   title: React.PropTypes.string,
-  questions: React.PropTypes.array.isRequired
+  questions: React.PropTypes.array.isRequired,
+  onFinished: React.PropTypes.func.isRequired
 }
 
 export default QuizContainer

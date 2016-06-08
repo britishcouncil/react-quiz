@@ -10,7 +10,7 @@ const findFirstAnswer = (w) => getQuiz(w).find('Question').shallow().find('Answe
 const findNextButton = (w) => getQuiz(w).findWhere(el => el.matchesElement(<button>Next</button>))
 
 test('clicking on an answer sets it to active', t => {
-  const w = shallow(<QuizContainer questions={questions} />)
+  const w = shallow(<QuizContainer questions={questions} onFinished={() => undefined} />)
 
   findFirstAnswer(w).shallow().find('button').simulate('click')
   w.update()
@@ -19,7 +19,7 @@ test('clicking on an answer sets it to active', t => {
 })
 
 test('clicking Next renders the next question', t => {
-  const w = shallow(<QuizContainer questions={questions} />)
+  const w = shallow(<QuizContainer questions={questions} onFinished={() => undefined} />)
 
   // First question, second answer selected.
   w.setState({

@@ -61,9 +61,9 @@ test('renders Finish button if last question', t => {
   const w = shallow(
     <Quiz {...defaultTestProps}
           title="The quiz title"
-          questions={[questions[questions.length - 1]]}
+          questions={questions}
           answers={{}}
-          currentQuestionIndex={0} />
+          currentQuestionIndex={questions.length - 1} />
   )
   t.is(findFinishButton(w).length, 1)
 })
@@ -79,13 +79,13 @@ test('Next button is disabled by default', t => {
   t.truthy(findNextButton(w).prop('disabled'))
 })
 
-test('Next button is disabled by default', t => {
+test('Finish button is disabled by default', t => {
   const w = shallow(
     <Quiz {...defaultTestProps}
           title="The quiz title"
-          questions={[questions[questions.length - 1]]}
+          questions={questions}
           answers={{}}
-          currentQuestionIndex={0} />
+          currentQuestionIndex={questions.length - 1} />
   )
   t.truthy(findFinishButton(w).prop('disabled'))
 })

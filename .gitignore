@@ -1,4 +1,15 @@
+# Project related files #
+##################
 node_modules
-npm-debug.log
+.log
+
+# OS generated files #
+##################
 .DS_Store
-dist
+
+# IDE generated files #
+###################
+.idea
+.project
+*.sublime-project
+*.sublime-workspace

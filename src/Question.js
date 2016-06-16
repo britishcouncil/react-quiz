@@ -1,17 +1,18 @@
 import React from 'react'
 import Answer from './Answer'
 
-const Question = ({instruction, text, answers, selectedAnswer, onAnswer}) => (
+const Question = ({instruction, text, answers, selectedAnswer, onAnswer, answerButtonClassName}) => (
   <div>
     <p>{instruction}</p>
     <p>{text}</p>
-    <ul>
+    <ol className="rq-Question-answerList">
       {answers.map((a, i) => (
-        <Answer key={i}
+        <Answer answerButtonClassName={answerButtonClassName}
+                key={i}
                 active={i === selectedAnswer}
                 onClick={() => onAnswer(i)}>{a}</Answer>
       ))}
-    </ul>
+    </ol>
   </div>
 )
 
@@ -20,7 +21,8 @@ Question.propTypes = {
   text: React.PropTypes.string.isRequired,
   answers: React.PropTypes.array.isRequired,
   selectedAnswer: React.PropTypes.number,
-  onAnswer: React.PropTypes.func
+  onAnswer: React.PropTypes.func,
+  answerButtonClassName: React.PropTypes.string
 }
 
 export default Question

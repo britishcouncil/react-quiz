@@ -1,14 +1,10 @@
-ul {
+/* Component styling */
+
+.rq-Question-answerList {
   list-style: none;
 }
 
-.Quiz-answer {
-  border: none;
-  outline: 0;
-  background-color: #ccc;
-}
-
-.active {
-  background-color: #333;
-  color: white;
+.rq-Answer {
+  margin: 0;
+  padding: 0;
 }

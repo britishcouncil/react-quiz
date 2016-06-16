@@ -17,3 +17,7 @@
 .rq-Answer-button--active {
   background-color: #333;
 }
+
+.rq-Question-instruction {
+  font-weight: 600;
+}

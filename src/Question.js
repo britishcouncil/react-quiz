@@ -3,7 +3,7 @@ import Answer from './Answer'
 
 const Question = ({instruction, text, answers, selectedAnswer, onAnswer, answerButtonClassName}) => (
   <div>
-    <p>{instruction}</p>
+    <p className="rq-Question-instruction">{instruction}</p>
     <p>{text}</p>
     <ol className="rq-Question-answerList">
       {answers.map((a, i) => (

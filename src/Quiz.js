@@ -2,7 +2,7 @@ import React from 'react'
 import Question from './Question'
 
 const Quiz = ({ title, questions, answers, currentQuestionIndex, onAnswer,
-  onNext, onFinished, answerButtonClassName }) => {
+  onNext, onFinished, answerButtonClassName, nextQuestionClassName }) => {
   const isLastQuestion = (currentQuestionIndex + 1) === questions.length
 
   return (
@@ -12,11 +12,13 @@ const Quiz = ({ title, questions, answers, currentQuestionIndex, onAnswer,
                 onAnswer={onAnswer}
                 selectedAnswer={answers[currentQuestionIndex]}
                 {...questions[currentQuestionIndex]} />
-      <div className="Quiz-buttonContainer">
+      <div className="rq-Quiz-buttonContainer">
         {isLastQuestion
-          ? <button onClick={onFinished}
+          ? <button className={nextQuestionClassName}
+                    onClick={onFinished}
                     disabled={answers[currentQuestionIndex] === undefined}>Finish</button>
-          : <button onClick={onNext}
+          : <button className={nextQuestionClassName}
+                    onClick={onNext}
                     disabled={answers[currentQuestionIndex] === undefined}>Next</button>
         }
       </div>
@@ -32,7 +34,8 @@ Quiz.propTypes = {
   onAnswer: React.PropTypes.func.isRequired,
   onNext: React.PropTypes.func.isRequired,
   onFinished: React.PropTypes.func.isRequired,
-  answerButtonClassName: React.PropTypes.string
+  answerButtonClassName: React.PropTypes.string,
+  nextQuestionClassName: React.PropTypes.string
 }
 
 export default Quiz

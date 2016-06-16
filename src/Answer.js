@@ -4,7 +4,7 @@ import classNames from 'classnames'
 const Answer = ({ active, onClick, children, answerButtonClassName }) => (
   <li className="rq-Answer">
     <button onClick={onClick}
-            className={classNames('rq-Answer-button', answerButtonClassName, {active: active})}>{children}</button>
+            className={classNames('rq-Answer-button', answerButtonClassName, {'rq-Answer-button--active': active})}>{children}</button>
   </li>
 )
 

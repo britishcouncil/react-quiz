@@ -8,6 +8,8 @@ export default class App extends Component {
       <div className="App">
         <QuizContainer answerButtonClassName="btn bc-btn-gray-cool btn-lg bc-btn-square bc-btn-block"
                        answerClassName=""
+                       questionInstructionClassName=""
+                       questionAnswerListClassName=""
                        nextQuestionClassName="btn btn-primary pull-right"
                        title="Check your level"
                        questions={questions}

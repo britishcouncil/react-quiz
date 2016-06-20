@@ -10,6 +10,7 @@ export default class App extends Component {
                        answerClassName=""
                        questionInstructionClassName=""
                        questionAnswerListClassName=""
+                       quizButtonContainerClassName=""
                        nextQuestionClassName="btn btn-primary pull-right"
                        title="Check your level"
                        questions={questions}

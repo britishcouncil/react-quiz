@@ -39,6 +39,7 @@ class QuizContainer extends React.Component {
                  nextQuestionClassName={this.props.nextQuestionClassName}
                  questionInstructionClassName={this.props.questionInstructionClassName}
                  questionAnswerListClassName={this.props.questionAnswerListClassName}
+                 quizButtonContainerClassName={this.props.quizButtonContainerClassName}
     />
   }
 }
@@ -51,7 +52,8 @@ QuizContainer.propTypes = {
   nextQuestionClassName: React.PropTypes.string,
   answerClassName: React.PropTypes.string,
   questionInstructionClassName: React.PropTypes.string,
-  questionAnswerListClassName: React.PropTypes.string
+  questionAnswerListClassName: React.PropTypes.string,
+  quizButtonContainerClassName: React.PropTypes.string
 }
 
 export default QuizContainer

@@ -35,6 +35,7 @@ class QuizContainer extends React.Component {
                  onNext={this.onNext}
                  onFinished={this.props.onFinished}
                  answerButtonClassName={this.props.answerButtonClassName}
+                 answerClassName={this.props.answerClassName}
                  nextQuestionClassName={this.props.nextQuestionClassName}
     />
   }
@@ -45,7 +46,8 @@ QuizContainer.propTypes = {
   questions: React.PropTypes.array.isRequired,
   onFinished: React.PropTypes.func.isRequired,
   answerButtonClassName: React.PropTypes.string,
-  nextQuestionClassName: React.PropTypes.string
+  nextQuestionClassName: React.PropTypes.string,
+  answerClassName: React.PropTypes.string
 }
 
 export default QuizContainer

@@ -7,6 +7,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <QuizContainer answerButtonClassName="btn bc-btn-gray-cool btn-lg bc-btn-square bc-btn-block"
+                       answerClassName=""
                        nextQuestionClassName="btn btn-primary pull-right"
                        title="Check your level"
                        questions={questions}

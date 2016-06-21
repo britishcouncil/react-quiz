@@ -126,7 +126,7 @@ test('Quiz button container class name', t => {
   t.true(w.find('.rq-Quiz-buttonContainer').hasClass('some-class-name'))
 })
 
-test.only('Quiz finish button, calls the onFinished function with the answers', t => {
+test('Quiz finish button, calls the onFinished function with the answers', t => {
   const w = shallow(
     <Quiz {...defaultTestProps}
           title="The quiz title"

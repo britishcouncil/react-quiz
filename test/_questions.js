@@ -1,6 +1,6 @@
 const questions = [
   {
-    'question': 'A lot of trains ____ late today due to the heavy storms.',
+    'text': 'A lot of trains ____ late today due to the heavy storms.',
     'correct': 1,
     'answers': [
       'are run',
@@ -9,7 +9,7 @@ const questions = [
     ]
   },
   {
-    'question': '____ was a strong wind last night.',
+    'text': '____ was a strong wind last night.',
     'correct': 0,
     'answers': [
       'There',

@@ -127,13 +127,20 @@ test('Quiz button container class name', t => {
 })
 
 test('Quiz finish button, calls the onFinished function with the answers', t => {
+  const onFinished = (answers) => {
+    t.deepEqual(answers, {0: 0, 1: 1})
+  }
   const w = shallow(
     <Quiz {...defaultTestProps}
           title="The quiz title"
           questions={questions}
-          answers={{}}
+          answers={{
+            0: 0,
+            1: 1
+          }}
           currentQuestionIndex={questions.length - 1}
+          onFinished={onFinished}
     />
   )
-  t.truthy(findFinishButton(w).prop('disabled'))
+  findFinishButton(w).simulate('click')
 })

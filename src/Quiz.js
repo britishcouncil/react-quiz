@@ -19,7 +19,7 @@ const Quiz = ({ title, questions, answers, currentQuestionIndex, onAnswer,
       <div className={classNames('rq-Quiz-buttonContainer', quizButtonContainerClassName)}>
         {isLastQuestion
           ? <button className={nextQuestionClassName}
-                    onClick={onFinished}
+                    onClick={() => onFinished(answers)}
                     disabled={answers[currentQuestionIndex] === undefined}>Finish</button>
           : <button className={nextQuestionClassName}
                     onClick={onNext}

@@ -1,14 +1,23 @@
-ul {
+/* Component styling */
+
+.rq-Question-answerList {
   list-style: none;
+  margin: 20px 0;
 }
 
-.Quiz-answer {
-  border: none;
-  outline: 0;
-  background-color: #ccc;
+.rq-Answer {
+  margin: 0;
+  padding: 0;
 }
 
-.active {
+.rq-Answer-button:focus {
   background-color: #333;
-  color: white;
+}
+
+.rq-Answer-button--active {
+  background-color: #333;
+}
+
+.rq-Question-instruction {
+  font-weight: 600;
 }

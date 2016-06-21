@@ -99,7 +99,6 @@ test('Next button is enabled when an answer is selected', t => {
           answers={{0: 0}}
           currentQuestionIndex={0} />
   )
-
   t.false(findNextButton(w).prop('disabled'))
 })
 
@@ -112,6 +111,17 @@ test('Finish button is enabled when an answer is selected', t => {
           answers={{[questions.length - 1]: 0}}
           currentQuestionIndex={questions.length - 1} />
   )
-
   t.false(findFinishButton(w).prop('disabled'))
+})
+
+test('Quiz button container class name', t => {
+  const w = shallow(
+    <Quiz {...defaultTestProps}
+          title="The quiz title"
+          questions={questions}
+          answers={{}}
+          currentQuestionIndex={0}
+          quizButtonContainerClassName="some-class-name"/>
+  )
+  t.true(w.find('.rq-Quiz-buttonContainer').hasClass('some-class-name'))
 })

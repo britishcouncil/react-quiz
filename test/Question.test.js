@@ -10,3 +10,21 @@ test('renders answers', t => {
 
   t.is(w.find('Answer').length, question.answers.length)
 })
+
+test('Question instruction class name', t => {
+  const question = questions[0]
+  const w = shallow(
+    <Question {...question}
+              questionInstructionClassName="some-class-name"/>)
+
+  t.true(w.find('.rq-Question-instruction').hasClass('some-class-name'))
+})
+
+test('Question answer list class name', t => {
+  const question = questions[0]
+  const w = shallow(
+    <Question {...question}
+              questionAnswerListClassName="some-class-name"/>)
+
+  t.true(w.find('.rq-Question-answerList').hasClass('some-class-name'))
+})

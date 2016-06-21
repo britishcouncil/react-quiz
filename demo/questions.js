@@ -1,5 +1,6 @@
 const questions = [
   {
+    'instruction': 'Complete the following sentence using a word from the list.',
     'text': 'A lot of trains ____ late today due to the heavy storms.',
     'correct': 1,
     'answers': [
@@ -9,6 +10,7 @@ const questions = [
     ]
   },
   {
+    'instruction': 'Complete the following sentence using a word from the list.',
     'text': '____ was a strong wind last night.',
     'correct': 0,
     'answers': [

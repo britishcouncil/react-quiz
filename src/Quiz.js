@@ -1,21 +1,28 @@
 import React from 'react'
 import Question from './Question'
+import classNames from 'classnames'
 
 const Quiz = ({ title, questions, answers, currentQuestionIndex, onAnswer,
-  onNext, onFinished }) => {
+  onNext, onFinished, answerButtonClassName, nextQuestionClassName, answerClassName, questionInstructionClassName, questionAnswerListClassName, quizButtonContainerClassName }) => {
   const isLastQuestion = (currentQuestionIndex + 1) === questions.length
 
   return (
     <div>
       <h1>{title}</h1>
-      <Question onAnswer={onAnswer}
+      <Question answerButtonClassName={answerButtonClassName}
+                answerClassName={answerClassName}
+                questionInstructionClassName={questionInstructionClassName}
+                questionAnswerListClassName={questionAnswerListClassName}
+                onAnswer={onAnswer}
                 selectedAnswer={answers[currentQuestionIndex]}
                 {...questions[currentQuestionIndex]} />
-      <div className="Quiz-buttonContainer">
+      <div className={classNames('rq-Quiz-buttonContainer', quizButtonContainerClassName)}>
         {isLastQuestion
-          ? <button onClick={onFinished}
+          ? <button className={nextQuestionClassName}
+                    onClick={onFinished}
                     disabled={answers[currentQuestionIndex] === undefined}>Finish</button>
-          : <button onClick={onNext}
+          : <button className={nextQuestionClassName}
+                    onClick={onNext}
                     disabled={answers[currentQuestionIndex] === undefined}>Next</button>
         }
       </div>
@@ -30,7 +37,13 @@ Quiz.propTypes = {
   currentQuestionIndex: React.PropTypes.number.isRequired,
   onAnswer: React.PropTypes.func.isRequired,
   onNext: React.PropTypes.func.isRequired,
-  onFinished: React.PropTypes.func.isRequired
+  onFinished: React.PropTypes.func.isRequired,
+  answerButtonClassName: React.PropTypes.string,
+  nextQuestionClassName: React.PropTypes.string,
+  answerClassName: React.PropTypes.string,
+  questionInstructionClassName: React.PropTypes.string,
+  questionAnswerListClassName: React.PropTypes.string,
+  quizButtonContainerClassName: React.PropTypes.string
 }
 
 export default Quiz

@@ -1,10 +1,11 @@
 ul {
   list-style: none;
 }
-button {
+
+.Quiz-answer {
   border: none;
-  background-color: #ccc;
   outline: 0;
+  background-color: #ccc;
 }
 
 .active {

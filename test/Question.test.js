@@ -10,13 +10,3 @@ test('renders answers', t => {
 
   t.is(w.find('Answer').length, question.answers.length)
 })
-
-test('clicking an Answer sets it to active', t => {
-  const question = questions[0]
-  const w = shallow(<Question {...question} />)
-
-  w.find('Answer').first().shallow().find('button').simulate('click')
-  w.update()
-
-  t.true(w.find('Answer').first().prop('active'))
-})

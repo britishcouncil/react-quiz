@@ -1,22 +1,14 @@
 import React, { Component } from 'react'
-import Quiz from '../src/Quiz'
+import QuizContainer from '../src/QuizContainer'
+import questions from './questions'
 
 export default class App extends Component {
   render () {
-    const question = {
-      instruction: 'Complete the following sentence using a word from the list',
-      text: 'A lot of trains ____ late today due to the heavy storms.',
-      correct: 1,
-      answers: [
-        'are run',
-        'are running',
-        'run'
-      ]
-    }
-
     return (
       <div className="App">
-        <Quiz title="Check your level" question={question} />
+        <QuizContainer title="Check your level"
+                       questions={questions}
+                       onFinished={() => console.log('onFinished() to be implemented')} />
       </div>
     )
   }

@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 import Answer from '../src/Answer'
 
 test('does not have the CSS class `active` by default', t => {
-  const w = shallow(<Answer>An answer</Answer>)
+  const w = shallow(<Answer active={false}>An answer</Answer>)
   t.not(w.find('button').hasClass('active'))
 })
 

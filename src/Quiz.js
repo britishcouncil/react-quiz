@@ -10,7 +10,8 @@ const Quiz = ({ title, questions, answers, currentQuestionIndex, onAnswer,
   return (
     <div>
       <h1>{title}</h1>
-      <ProgressBar value={ currentQuestionIndex+1 } max={ questions.length }/>
+      <p>Question {currentQuestionIndex + 1} of {questions.length}</p>
+      <ProgressBar value={currentQuestionIndex + 1} max={questions.length}/>
       <Question answerButtonClassName={answerButtonClassName}
                 answerClassName={answerClassName}
                 questionInstructionClassName={questionInstructionClassName}

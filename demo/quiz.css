@@ -21,3 +21,15 @@
 .rq-Question-instruction {
   font-weight: 600;
 }
+
+.progress,
+.progress-bar {
+  height:        15px;
+  border-radius: 10px;
+}
+
+.progress-bar {
+  [dir="rtl"] & {
+    float: right;
+  }
+}

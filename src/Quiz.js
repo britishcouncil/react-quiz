@@ -1,5 +1,6 @@
 import React from 'react'
 import Question from './Question'
+import ProgressBar from './ProgressBar'
 import classNames from 'classnames'
 
 const Quiz = ({ title, questions, answers, currentQuestionIndex, onAnswer,
@@ -9,6 +10,7 @@ const Quiz = ({ title, questions, answers, currentQuestionIndex, onAnswer,
   return (
     <div>
       <h1>{title}</h1>
+      <ProgressBar value={ currentQuestionIndex+1 } max={ questions.length }/>
       <Question answerButtonClassName={answerButtonClassName}
                 answerClassName={answerClassName}
                 questionInstructionClassName={questionInstructionClassName}

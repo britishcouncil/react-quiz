@@ -18,6 +18,9 @@ const ProgressBar = ({ min = 0, max = 100, value = 0, customClassNames }) => {
 }
 
 ProgressBar.propTypes = {
+  min: React.PropTypes.number,
+  max: React.PropTypes.number,
+  value: React.PropTypes.number,
 }
 
 export default ProgressBar

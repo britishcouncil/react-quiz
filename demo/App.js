@@ -19,7 +19,6 @@ export default class App extends Component {
     return (
       <div className="App">
         <QuizContainer customClassNames={customClassNames}
-                       nextQuestionClassName="btn btn-primary pull-right"
                        title="Check your level"
                        progressTextTemplate="Question {n} of {total}"
                        questions={questions}

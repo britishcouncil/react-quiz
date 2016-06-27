@@ -2,15 +2,23 @@ import React from 'react'
 import Question from './Question'
 import ProgressBar from './ProgressBar'
 import classNames from 'classnames'
+import interpolate from 'interpolate'
 
 const Quiz = ({ title, questions, answers, currentQuestionIndex, onAnswer,
-  onNext, onFinished, progressBarClassName, progressBarInnerClassName, answerButtonClassName, nextQuestionClassName, answerClassName, questionInstructionClassName, questionAnswerListClassName, quizButtonContainerClassName }) => {
+  onNext, onFinished, progressTextTemplate = 'Question {n} of {total}',
+  progressBarClassName, progressBarInnerClassName,
+  answerButtonClassName, nextQuestionClassName, answerClassName,
+  questionInstructionClassName, questionAnswerListClassName,
+  quizButtonContainerClassName }) => {
   const isLastQuestion = (currentQuestionIndex + 1) === questions.length
 
   return (
     <div>
       <h1>{title}</h1>
-      <p>Question {currentQuestionIndex + 1} of {questions.length}</p>
+      <p>{interpolate(progressTextTemplate, {
+        n: currentQuestionIndex + 1,
+        total: questions.length
+      })}</p>
       <ProgressBar value={currentQuestionIndex + 1}
                    max={questions.length}
                    progressBarClassName={progressBarClassName}
@@ -44,6 +52,7 @@ Quiz.propTypes = {
   onAnswer: React.PropTypes.func.isRequired,
   onNext: React.PropTypes.func.isRequired,
   onFinished: React.PropTypes.func.isRequired,
+  progressTextTemplate: React.PropTypes.string,
   progressBarClassName: React.PropTypes.string,
   progressBarInnerClassName: React.PropTypes.string,
   answerButtonClassName: React.PropTypes.string,

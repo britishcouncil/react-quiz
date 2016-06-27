@@ -34,6 +34,7 @@ class QuizContainer extends React.Component {
                  onAnswer={this.onAnswer}
                  onNext={this.onNext}
                  onFinished={this.props.onFinished}
+                 progressTextTemplate={this.props.progressTextTemplate}
                  progressBarClassName={this.props.progressBarClassName}
                  progressBarInnerClassName={this.props.progressBarInnerClassName}
                  answerButtonClassName={this.props.answerButtonClassName}
@@ -50,6 +51,7 @@ QuizContainer.propTypes = {
   title: React.PropTypes.string,
   questions: React.PropTypes.array.isRequired,
   onFinished: React.PropTypes.func.isRequired,
+  progressTextTemplate: React.PropTypes.string,
   progressBarClassName: React.PropTypes.string,
   progressBarInnerClassName: React.PropTypes.string,
   answerButtonClassName: React.PropTypes.string,

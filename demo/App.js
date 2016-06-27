@@ -15,6 +15,7 @@ export default class App extends Component {
                        quizButtonContainerClassName=""
                        nextQuestionClassName="btn btn-primary pull-right"
                        title="Check your level"
+                       progressTextTemplate="Question {n} of {total}"
                        questions={questions}
                        onFinished={(answers) => console.log(answers)} />
       </div>

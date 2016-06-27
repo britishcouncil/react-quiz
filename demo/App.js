@@ -4,10 +4,11 @@ import questions from './questions'
 
 const customClassNames = {
   'rq-Quiz-buttonContainer': '',
-  'rq-Question-instruction': '',
-  'rq-Question-answerList': '',
-  'rq-Answer': '',
-  'rq-Answer-button': 'btn bc-btn-gray-cool btn-lg bc-btn-square bc-btn-block',
+  'rq-Question-instruction': 'instruction',
+  'rq-Question-answerList': 'answer-list',
+  'rq-Answer': 'answer',
+  'rq-Answer-button': 'btn bc-btn-gray-cool btn-lg bc-btn-square bc-btn-block answer-button',
+  'rq-Answer-button--active': 'active',
   'rq-ProgressBar': 'progress',
   'rq-ProgressBar-inner': 'progress-bar',
   'rq-Quiz-nextButton': 'btn btn-primary pull-right'

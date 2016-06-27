@@ -15,14 +15,14 @@ test('the `active` prop sets the CSS class `active`', t => {
 
 test('Answer list item class name', t => {
   const w = shallow(
-    <Answer active={false} answerClassName="some-class-name">An answer</Answer>)
+    <Answer active={false} customClassNames={{'rq-Answer': 'some-class-name'}}>An answer</Answer>)
 
   t.true(w.find('.rq-Answer').hasClass('some-class-name'))
 })
 
 test('Button class name', t => {
   const w = shallow(
-    <Answer active={false} answerButtonClassName="some-class-name">An answer</Answer>)
+    <Answer active={false} customClassNames={{'rq-Answer-button': 'some-class-name'}}>An answer</Answer>)
 
   t.true(w.find('.rq-Answer-button').hasClass('some-class-name'))
 })

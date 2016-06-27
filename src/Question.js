@@ -3,7 +3,7 @@ import Answer from './Answer'
 import classNames from 'classnames'
 
 const Question = ({ instruction, text, answers, selectedAnswer, onAnswer,
-  customClassNames }) => (
+  customClassNames = {} }) => (
   <div>
     <p className={classNames('rq-Question-instruction', customClassNames['rq-Question-instruction'])}>{instruction}</p>
     <p>{text}</p>

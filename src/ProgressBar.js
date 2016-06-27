@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 
-const ProgressBar = ({ min = 0, max = 100, value = 0, customClassNames }) => {
+const ProgressBar = ({ min = 0, max = 100, value = 0, customClassNames = {} }) => {
   const progressSize = {
     width: ((value - min) / (max - min) * 100) + '%'
   }

@@ -6,7 +6,7 @@ import interpolate from 'interpolate'
 
 const Quiz = ({ title, questions, answers, currentQuestionIndex, onAnswer,
   onNext, onFinished, progressTextTemplate = 'Question {n} of {total}',
-  customClassNames }) => {
+  customClassNames = {} }) => {
   const isLastQuestion = (currentQuestionIndex + 1) === questions.length
 
   return (

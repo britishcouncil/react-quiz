@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 
-const Answer = ({ active, onClick, children, customClassNames }) => (
+const Answer = ({ active, onClick, children, customClassNames = {} }) => (
   <li className={classNames('rq-Answer', customClassNames['rq-Answer'])}>
     <button onClick={onClick}
             className={classNames('rq-Answer-button', customClassNames['rq-Answer-button'],

@@ -6,10 +6,7 @@ import interpolate from 'interpolate'
 
 const Quiz = ({ title, questions, answers, currentQuestionIndex, onAnswer,
   onNext, onFinished, progressTextTemplate = 'Question {n} of {total}',
-  progressBarClassName, progressBarInnerClassName,
-  answerButtonClassName, nextQuestionClassName, answerClassName,
-  questionInstructionClassName, questionAnswerListClassName,
-  quizButtonContainerClassName }) => {
+  customClassNames }) => {
   const isLastQuestion = (currentQuestionIndex + 1) === questions.length
 
   return (
@@ -21,21 +18,17 @@ const Quiz = ({ title, questions, answers, currentQuestionIndex, onAnswer,
       })}</p>
       <ProgressBar value={currentQuestionIndex + 1}
                    max={questions.length}
-                   progressBarClassName={progressBarClassName}
-                   progressBarInnerClassName={progressBarInnerClassName}/>
-      <Question answerButtonClassName={answerButtonClassName}
-                answerClassName={answerClassName}
-                questionInstructionClassName={questionInstructionClassName}
-                questionAnswerListClassName={questionAnswerListClassName}
+                   customClassNames={customClassNames} />
+      <Question customClassNames={customClassNames}
                 onAnswer={onAnswer}
                 selectedAnswer={answers[currentQuestionIndex]}
                 {...questions[currentQuestionIndex]} />
-      <div className={classNames('rq-Quiz-buttonContainer', quizButtonContainerClassName)}>
+      <div className={classNames('rq-Quiz-buttonContainer', customClassNames['rq-Quiz-buttonContainer'])}>
         {isLastQuestion
-          ? <button className={nextQuestionClassName}
+          ? <button className={classNames('rq-Quiz-nextButton', customClassNames['rq-Quiz-nextButton'])}
                     onClick={() => onFinished(answers)}
                     disabled={answers[currentQuestionIndex] === undefined}>Finish</button>
-          : <button className={nextQuestionClassName}
+          : <button className={classNames('rq-Quiz-nextButton', customClassNames['rq-Quiz-nextButton'])}
                     onClick={onNext}
                     disabled={answers[currentQuestionIndex] === undefined}>Next</button>
         }
@@ -52,15 +45,7 @@ Quiz.propTypes = {
   onAnswer: React.PropTypes.func.isRequired,
   onNext: React.PropTypes.func.isRequired,
   onFinished: React.PropTypes.func.isRequired,
-  progressTextTemplate: React.PropTypes.string,
-  progressBarClassName: React.PropTypes.string,
-  progressBarInnerClassName: React.PropTypes.string,
-  answerButtonClassName: React.PropTypes.string,
-  nextQuestionClassName: React.PropTypes.string,
-  answerClassName: React.PropTypes.string,
-  questionInstructionClassName: React.PropTypes.string,
-  questionAnswerListClassName: React.PropTypes.string,
-  quizButtonContainerClassName: React.PropTypes.string
+  progressTextTemplate: React.PropTypes.string
 }
 
 export default Quiz

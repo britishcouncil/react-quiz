@@ -121,7 +121,7 @@ test('Quiz button container class name', t => {
           questions={questions}
           answers={{}}
           currentQuestionIndex={0}
-          quizButtonContainerClassName="some-class-name"/>
+          customClassNames={{'rq-Quiz-buttonContainer': 'some-class-name'}}/>
   )
   t.true(w.find('.rq-Quiz-buttonContainer').hasClass('some-class-name'))
 })

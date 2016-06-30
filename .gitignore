@@ -1,0 +1,16 @@
+# Project related files #
+##################
+node_modules
+.log
+dist
+
+# OS generated files #
+##################
+.DS_Store
+
+# IDE generated files #
+###################
+.idea
+.project
+*.sublime-project
+*.sublime-workspace

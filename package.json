@@ -1,6 +1,6 @@
 {
   "name": "react-quiz",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Quiz component",
   "scripts": {
     "start": "node server.js",

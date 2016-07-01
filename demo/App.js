@@ -14,7 +14,7 @@ export default class App extends Component {
                        nextQuestionClassName="btn btn-primary pull-right"
                        title="Check your level"
                        questions={questions}
-                       onFinished={() => console.log('onFinished() to be implemented')} />
+                       onFinished={(answers) => console.log(answers)} />
       </div>
     )
   }

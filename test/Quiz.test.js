@@ -125,3 +125,22 @@ test('Quiz button container class name', t => {
   )
   t.true(w.find('.rq-Quiz-buttonContainer').hasClass('some-class-name'))
 })
+
+test('Quiz finish button, calls the onFinished function with the answers', t => {
+  const onFinished = (answers) => {
+    t.deepEqual(answers, {0: 0, 1: 1})
+  }
+  const w = shallow(
+    <Quiz {...defaultTestProps}
+          title="The quiz title"
+          questions={questions}
+          answers={{
+            0: 0,
+            1: 1
+          }}
+          currentQuestionIndex={questions.length - 1}
+          onFinished={onFinished}
+    />
+  )
+  findFinishButton(w).simulate('click')
+})

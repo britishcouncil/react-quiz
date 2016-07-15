@@ -23,7 +23,7 @@ We use [Semantic Versioning](http://semver.org/) and bump versions using the `np
 hooks in `package.json`.
 
 ## How to release a new version
-1. Create a new version:
+1. Make sure to be clear on what kind of version it is (`patch`, `minor` or `major`). Create a new version:
 ```
 npm version patch
 ```

@@ -1,23 +1,35 @@
 /* Component styling */
 
-.rq-Question-answerList {
+.active {
+  background-color: #333;
+}
+
+.answer-list {
   list-style: none;
   margin: 20px 0;
 }
 
-.rq-Answer {
+.answer {
   margin: 0;
   padding: 0;
 }
 
-.rq-Answer-button:focus {
+.answer-button:focus {
   background-color: #333;
 }
 
-.rq-Answer-button--active {
-  background-color: #333;
-}
-
-.rq-Question-instruction {
+.instruction {
   font-weight: 600;
+}
+
+.progress,
+.progress-bar {
+  height:        15px;
+  border-radius: 10px;
+}
+
+.progress-bar {
+  [dir="rtl"] & {
+    float: right;
+  }
 }

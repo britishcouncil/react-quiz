@@ -15,7 +15,7 @@ test('Question instruction class name', t => {
   const question = questions[0]
   const w = shallow(
     <Question {...question}
-              questionInstructionClassName="some-class-name"/>)
+              customClassNames={{'rq-Question-instruction': 'some-class-name'}}/>)
 
   t.true(w.find('.rq-Question-instruction').hasClass('some-class-name'))
 })
@@ -24,7 +24,7 @@ test('Question answer list class name', t => {
   const question = questions[0]
   const w = shallow(
     <Question {...question}
-              questionAnswerListClassName="some-class-name"/>)
+              customClassNames={{'rq-Question-answerList': 'some-class-name'}}/>)
 
   t.true(w.find('.rq-Question-answerList').hasClass('some-class-name'))
 })

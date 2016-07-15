@@ -6,9 +6,10 @@
     "start": "node server.js",
     "test": "NODE_ENV=test BABEL_DISABLE_CACHE=1 WEBPACK_RUNTIME_CONFIG=`pwd`/runtime.webpack.config ava",
     "build": "rm -rf dist;babel src --out-dir dist",
+    "getversion": "node -p -e \"require('./package.json').version\"",
     "preversion": "npm run build",
     "version": "git add .",
-    "postversion": "cp package.json dist && cp *.md dist && git checkout dist && cp -a ./dist/ . && git add . && git commit -m 'Version'"
+    "postversion": "cp package.json dist && cp *.md dist && git checkout dist && cp -a ./dist/ . && git add . && git commit -m $(npm run getversion --loglevel silent)"
   },
   "repository": {
     "type": "git",

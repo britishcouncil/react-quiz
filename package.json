@@ -6,9 +6,9 @@
     "start": "node server.js",
     "test": "NODE_ENV=test BABEL_DISABLE_CACHE=1 WEBPACK_RUNTIME_CONFIG=`pwd`/runtime.webpack.config ava",
     "build": "rm -rf dist;babel src --out-dir dist",
-    "preversion": "npm run build && git checkout dist",
-    "version": "cp -a ./dist/ . && git add .",
-    "postversion": "git push origin dist && git push origin dist --tags"
+    "preversion": "npm run build",
+    "version": "git add .",
+    "postversion": "git checkout dist && cp -a ./dist/ . && git add . && git commit -m 'Version'"
   },
   "repository": {
     "type": "git",

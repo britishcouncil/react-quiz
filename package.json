@@ -1,6 +1,6 @@
 {
   "name": "react-quiz",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Quiz component",
   "scripts": {
     "start": "node server.js",
@@ -8,7 +8,7 @@
     "build": "rm -rf dist;babel src --out-dir dist",
     "preversion": "npm run build",
     "version": "git add .",
-    "postversion": "git checkout dist && cp -a ./dist/ . && git add . && git commit -m 'Version'"
+    "postversion": "cp package.json dist && cp *.md dist && git checkout dist && cp -a ./dist/ . && git add . && git commit -m 'Version'"
   },
   "repository": {
     "type": "git",

@@ -22,20 +22,21 @@ npm test -- --watch
 We use [Semantic Versioning](http://semver.org/) and bump versions using the `npm version` command ([see npm docs](https://docs.npmjs.com/cli/version)). We've defined `preversion`, `version` and `postversion`
 hooks in `package.json`.
 
-Releasing is a two step process. First we create a new version. Then we publish it.
+## How to release a new version
+1. Create a new version:
+```
+npm version patch
+```
+This transpiles the source files to ES5 using babel. The version is bumped and committed to both master and in the `dist` branch (which is an orphan branch that only includes the files we want to distribute). You'll be left in the `dist` branch.
+
+2. Do a `git log` to check that the version number is correct. Test that the version works correctly. Push to GitHub:
+```
+git push origin && git push origin --tags
+```
+
+3. Publish to npm:
 
 Example:
-```
-npm version patch -m "Bug fix..."
-```
-
-This will:
-
-1. Transpile the source files to ES5 using babel.
-2. Change to the `dist` branch (which is an orphan branch that only includes the files we want to distribute).
-3. Bump the version in package.json, commit and tag the release.
-
-Check that you're in the `dist` branch and that the commit has been made. To publish, run:
 ```
 npm publish ./
 ```

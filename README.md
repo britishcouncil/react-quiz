@@ -19,7 +19,7 @@ npm test -- --watch
 ```
 
 ### Releasing
-We use [Semantic Versioning](http://semver.org/) and bump versions using the `npm version` command ([see npm docs](https://docs.npmjs.com/cli/version)). We've defined `preversion`, `version` and `postversion`
+We use [Semantic Versioning](http://semver.org/) and bump versions using the `npm version` command ([see npm docs](https://docs.npmjs.com/cli/version)). We've defined `preversion` and `postversion`
 hooks in `package.json`.
 
 ## How to release a new version

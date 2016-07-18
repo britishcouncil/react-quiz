@@ -1,14 +1,12 @@
 #!/bin/bash
-echo "-- Copy files to dist directory"
-cp package.json dist
-cp *.md dist
+npm run build
 
-echo "-- Switch to dist branch"
+echo "-- Switching to dist branch"
 git checkout dist || git checkout -b dist
 git fetch
 git reset --hard origin/dist
 
-echo "-- Commit the new version"
+echo "-- Committing the new version"
 cp -a ./dist/ .
 git add .
 git commit -m $(node -p -e "require('./package.json').version")

@@ -1,10 +1,13 @@
 {
   "name": "react-quiz",
-  "version": "1.0.0",
+  "version": "0.0.4",
   "description": "Quiz component",
   "scripts": {
     "start": "node server.js",
-    "test": "NODE_ENV=test BABEL_DISABLE_CACHE=1 WEBPACK_RUNTIME_CONFIG=`pwd`/runtime.webpack.config ava"
+    "test": "NODE_ENV=test BABEL_DISABLE_CACHE=1 WEBPACK_RUNTIME_CONFIG=`pwd`/runtime.webpack.config ava",
+    "build": "./scripts/build.sh",
+    "preversion": "npm test",
+    "postversion": "./scripts/postversion.sh"
   },
   "repository": {
     "type": "git",
@@ -18,17 +21,16 @@
   "author": "British Council",
   "license": "MIT",
   "devDependencies": {
-    "react": "^15.0.2",
-    "react-dom": "^15.0.2",
     "ava": "^0.14.0",
+    "babel-cli": "^6.10.1",
     "babel-core": "^6.0.20",
     "babel-eslint": "^4.1.3",
     "babel-loader": "^6.0.1",
     "babel-plugin-webpack-loaders": "^0.4.0",
     "babel-polyfill": "^6.8.0",
-    "babel-preset-es2015": "^6.0.15",
-    "babel-preset-react": "^6.0.15",
-    "babel-preset-stage-0": "^6.0.15",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.8.0",
     "enzyme": "^2.2.0",
     "eslint": "^2.9.0",
@@ -36,7 +38,9 @@
     "eslint-plugin-promise": "^1.1.0",
     "eslint-plugin-react": "^3.16.1",
     "eslint-plugin-standard": "^1.3.2",
+    "react": "^15.0.2",
     "react-addons-test-utils": "^15.0.2",
+    "react-dom": "^15.0.2",
     "react-hot-loader": "^1.3.0",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.12.1"

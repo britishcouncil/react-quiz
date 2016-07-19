@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import QuizContainer from '../src/QuizContainer'
+import QuizContainer from '../src'
 import questions from './questions'
 
 const customClassNames = {

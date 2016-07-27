@@ -4,14 +4,13 @@ import ProgressBar from './ProgressBar'
 import classNames from 'classnames'
 import interpolate from 'interpolate'
 
-const Quiz = ({ title, questions, answers, currentQuestionIndex, onAnswer,
+const Quiz = ({ questions, answers, currentQuestionIndex, onAnswer,
   onNext, onFinished, progressTextTemplate = 'Question {n} of {total}',
   customClassNames = {} }) => {
   const isLastQuestion = (currentQuestionIndex + 1) === questions.length
 
   return (
     <div>
-      <h1>{title}</h1>
       <p>{interpolate(progressTextTemplate, {
         n: currentQuestionIndex + 1,
         total: questions.length
@@ -38,7 +37,6 @@ const Quiz = ({ title, questions, answers, currentQuestionIndex, onAnswer,
 }
 
 Quiz.propTypes = {
-  title: React.PropTypes.string,
   questions: React.PropTypes.array.isRequired,
   answers: React.PropTypes.object.isRequired,
   currentQuestionIndex: React.PropTypes.number.isRequired,

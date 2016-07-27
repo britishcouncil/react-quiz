@@ -21,7 +21,7 @@ export default class App extends Component {
         <QuizContainer customClassNames={customClassNames}
                        progressTextTemplate="Question {n} of {total}"
                        questions={questions}
-                       onFinished={(answers) => console.log(answers)} />
+                       onFinish={(answers) => console.log(answers)} />
       </div>
     )
   }

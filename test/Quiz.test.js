@@ -10,7 +10,7 @@ const findFinishButton = (w) => w.findWhere(el => el.matchesElement(<button>Fini
 const defaultTestProps = {
   onAnswer: () => undefined,
   onNext: () => undefined,
-  onFinished: () => undefined
+  onFinish: () => undefined
 }
 
 test('renders title', t => {
@@ -126,8 +126,8 @@ test('Quiz button container class name', t => {
   t.true(w.find('.rq-Quiz-buttonContainer').hasClass('some-class-name'))
 })
 
-test('Quiz finish button, calls the onFinished function with the answers', t => {
-  const onFinished = (answers) => {
+test('Quiz finish button, calls the onFinish function with the answers', t => {
+  const onFinish = (answers) => {
     t.deepEqual(answers, {0: 0, 1: 1})
   }
   const w = shallow(
@@ -139,7 +139,7 @@ test('Quiz finish button, calls the onFinished function with the answers', t => 
             1: 1
           }}
           currentQuestionIndex={questions.length - 1}
-          onFinished={onFinished}
+          onFinish={onFinish}
     />
   )
   findFinishButton(w).simulate('click')

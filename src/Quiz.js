@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import interpolate from 'interpolate'
 
 const Quiz = ({ questions, answers, currentQuestionIndex, onAnswer,
-  onNext, onFinished, progressTextTemplate = 'Question {n} of {total}',
+  onNext, onFinish, progressTextTemplate = 'Question {n} of {total}',
   customClassNames = {} }) => {
   const isLastQuestion = (currentQuestionIndex + 1) === questions.length
 
@@ -25,7 +25,7 @@ const Quiz = ({ questions, answers, currentQuestionIndex, onAnswer,
       <div className={classNames('rq-Quiz-buttonContainer', customClassNames['rq-Quiz-buttonContainer'])}>
         {isLastQuestion
           ? <button className={classNames('rq-Quiz-nextButton', customClassNames['rq-Quiz-nextButton'])}
-                    onClick={() => onFinished(answers)}
+                    onClick={() => onFinish(answers)}
                     disabled={answers[currentQuestionIndex] === undefined}>Finish</button>
           : <button className={classNames('rq-Quiz-nextButton', customClassNames['rq-Quiz-nextButton'])}
                     onClick={onNext}
@@ -42,7 +42,7 @@ Quiz.propTypes = {
   currentQuestionIndex: React.PropTypes.number.isRequired,
   onAnswer: React.PropTypes.func.isRequired,
   onNext: React.PropTypes.func.isRequired,
-  onFinished: React.PropTypes.func.isRequired,
+  onFinish: React.PropTypes.func.isRequired,
   progressTextTemplate: React.PropTypes.string
 }
 

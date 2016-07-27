@@ -13,17 +13,6 @@ const defaultTestProps = {
   onFinish: () => undefined
 }
 
-test('renders title', t => {
-  const w = shallow(
-    <Quiz {...defaultTestProps}
-          title="The quiz title"
-          questions={questions}
-          answers={{}}
-          currentQuestionIndex={0} />
-  )
-  t.true(w.text().includes('The quiz title'))
-})
-
 test('renders a question', t => {
   const w = shallow(
     <Quiz {...defaultTestProps}

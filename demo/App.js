@@ -19,10 +19,9 @@ export default class App extends Component {
     return (
       <div className="App">
         <QuizContainer customClassNames={customClassNames}
-                       title="Check your level"
                        progressTextTemplate="Question {n} of {total}"
                        questions={questions}
-                       onFinished={(answers) => console.log(answers)} />
+                       onFinish={(answers) => console.log(answers)} />
       </div>
     )
   }

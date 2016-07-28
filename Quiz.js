@@ -29,13 +29,12 @@ var _interpolate2 = _interopRequireDefault(_interpolate);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Quiz = function Quiz(_ref) {
-  var title = _ref.title;
   var questions = _ref.questions;
   var answers = _ref.answers;
   var currentQuestionIndex = _ref.currentQuestionIndex;
   var onAnswer = _ref.onAnswer;
   var onNext = _ref.onNext;
-  var onFinished = _ref.onFinished;
+  var onFinish = _ref.onFinish;
   var _ref$progressTextTemp = _ref.progressTextTemplate;
   var progressTextTemplate = _ref$progressTextTemp === undefined ? 'Question {n} of {total}' : _ref$progressTextTemp;
   var _ref$customClassNames = _ref.customClassNames;
@@ -46,11 +45,6 @@ var Quiz = function Quiz(_ref) {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'h1',
-      null,
-      title
-    ),
     _react2.default.createElement(
       'p',
       null,
@@ -73,7 +67,7 @@ var Quiz = function Quiz(_ref) {
         'button',
         { className: (0, _classnames2.default)('rq-Quiz-nextButton', customClassNames['rq-Quiz-nextButton']),
           onClick: function onClick() {
-            return onFinished(answers);
+            return onFinish(answers);
           },
           disabled: answers[currentQuestionIndex] === undefined },
         'Finish'
@@ -89,13 +83,12 @@ var Quiz = function Quiz(_ref) {
 };
 
 Quiz.propTypes = {
-  title: _react2.default.PropTypes.string,
   questions: _react2.default.PropTypes.array.isRequired,
   answers: _react2.default.PropTypes.object.isRequired,
   currentQuestionIndex: _react2.default.PropTypes.number.isRequired,
   onAnswer: _react2.default.PropTypes.func.isRequired,
   onNext: _react2.default.PropTypes.func.isRequired,
-  onFinished: _react2.default.PropTypes.func.isRequired,
+  onFinish: _react2.default.PropTypes.func.isRequired,
   progressTextTemplate: _react2.default.PropTypes.string
 };
 

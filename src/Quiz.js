@@ -6,7 +6,7 @@ import interpolate from 'interpolate'
 
 const Quiz = ({ questions, answers, currentQuestionIndex, onAnswer,
   onNext, onFinish, progressTextTemplate = 'Question {n} of {total}',
-  customClassNames = {} }) => {
+  customClassNames = {}, text = {}}) => {
   const isLastQuestion = (currentQuestionIndex + 1) === questions.length
 
   return (
@@ -26,10 +26,10 @@ const Quiz = ({ questions, answers, currentQuestionIndex, onAnswer,
         {isLastQuestion
           ? <button className={classNames('rq-Quiz-nextButton', customClassNames['rq-Quiz-nextButton'])}
                     onClick={() => onFinish(answers)}
-                    disabled={answers[currentQuestionIndex] === undefined}>Finish</button>
+                    disabled={answers[currentQuestionIndex] === undefined}>{text['rq-Quiz-nextButton--finish'] || 'Finish'}</button>
           : <button className={classNames('rq-Quiz-nextButton', customClassNames['rq-Quiz-nextButton'])}
                     onClick={onNext}
-                    disabled={answers[currentQuestionIndex] === undefined}>Next</button>
+                    disabled={answers[currentQuestionIndex] === undefined}>{text['rq-Quiz-nextButton'] || 'Next'}</button>
         }
       </div>
     </div>

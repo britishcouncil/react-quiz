@@ -4,17 +4,18 @@ import ProgressBar from './ProgressBar'
 import classNames from 'classnames'
 import interpolate from 'interpolate'
 
-const Quiz = ({ questions, answers, currentQuestionIndex, onAnswer,
-  onNext, onFinish, progressTextTemplate = 'Question {n} of {total}',
-  customClassNames = {}, text = {}}) => {
+const Quiz = ({ questions, answers, currentQuestionIndex, onAnswer, onNext,
+  onFinish, customClassNames = {}, customText = {}}) => {
   const isLastQuestion = (currentQuestionIndex + 1) === questions.length
 
   return (
     <div>
-      <p>{interpolate(progressTextTemplate, {
-        n: currentQuestionIndex + 1,
-        total: questions.length
-      })}</p>
+      <p className={classNames('rq-Quiz-progressText', customClassNames['rq-Quiz-progressText'])}>
+        {interpolate(customText['rq-Quiz-progressText'] || 'Question {n} of {total}', {
+          n: currentQuestionIndex + 1,
+          total: questions.length
+        })}
+      </p>
       <ProgressBar value={currentQuestionIndex + 1}
                    max={questions.length}
                    customClassNames={customClassNames} />
@@ -26,10 +27,10 @@ const Quiz = ({ questions, answers, currentQuestionIndex, onAnswer,
         {isLastQuestion
           ? <button className={classNames('rq-Quiz-nextButton', customClassNames['rq-Quiz-nextButton'])}
                     onClick={() => onFinish(answers)}
-                    disabled={answers[currentQuestionIndex] === undefined}>{text['rq-Quiz-nextButton--finish'] || 'Finish'}</button>
+                    disabled={answers[currentQuestionIndex] === undefined}>{customText['rq-Quiz-nextButton--finish'] || 'Finish'}</button>
           : <button className={classNames('rq-Quiz-nextButton', customClassNames['rq-Quiz-nextButton'])}
                     onClick={onNext}
-                    disabled={answers[currentQuestionIndex] === undefined}>{text['rq-Quiz-nextButton'] || 'Next'}</button>
+                    disabled={answers[currentQuestionIndex] === undefined}>{customText['rq-Quiz-nextButton'] || 'Next'}</button>
         }
       </div>
     </div>

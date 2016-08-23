@@ -26,12 +26,16 @@ var Question = function Question(_ref) {
   var onAnswer = _ref.onAnswer;
   var _ref$customClassNames = _ref.customClassNames;
   var customClassNames = _ref$customClassNames === undefined ? {} : _ref$customClassNames;
+
+  var instructionClassName = (0, _classnames2.default)('rq-Question-instruction', customClassNames['rq-Question-instruction']);
+  var answerListClassName = (0, _classnames2.default)('rq-Question-answerList', customClassNames['rq-Question-answerList']);
+
   return _react2.default.createElement(
     'div',
     null,
     _react2.default.createElement(
       'p',
-      { className: (0, _classnames2.default)('rq-Question-instruction', customClassNames['rq-Question-instruction']) },
+      { className: instructionClassName },
       instruction
     ),
     _react2.default.createElement(
@@ -41,7 +45,7 @@ var Question = function Question(_ref) {
     ),
     _react2.default.createElement(
       'ol',
-      { className: (0, _classnames2.default)('rq-Question-answerList', customClassNames['rq-Question-answerList']) },
+      { className: answerListClassName },
       answers.map(function (a, i) {
         return _react2.default.createElement(
           _Answer2.default,

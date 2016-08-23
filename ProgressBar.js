@@ -28,11 +28,14 @@ var ProgressBar = function ProgressBar(_ref) {
     width: (value - min) / (max - min) * 100 + '%'
   };
 
+  var progressBarClassName = (0, _classnames2.default)('rq-ProgressBar', customClassNames['rq-ProgressBar']);
+  var progressBarInnerClassName = (0, _classnames2.default)('rq-ProgressBar-inner', customClassNames['rq-ProgressBar-inner']);
+
   // Displays the progress bar size accordingly max, min, current value and isVisible
   return _react2.default.createElement(
     'div',
-    { className: (0, _classnames2.default)('rq-ProgressBar', customClassNames['rq-ProgressBar']) },
-    _react2.default.createElement('div', { className: (0, _classnames2.default)('rq-ProgressBar-inner', customClassNames['rq-ProgressBar-inner']), role: 'progressbar',
+    { className: progressBarClassName },
+    _react2.default.createElement('div', { className: progressBarInnerClassName, role: 'progressbar',
       'aria-valuenow': value, 'aria-valuemin': min, 'aria-valuemax': max,
       style: progressSize })
   );

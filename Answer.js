@@ -22,14 +22,18 @@ var Answer = function Answer(_ref) {
   var children = _ref.children;
   var _ref$customClassNames = _ref.customClassNames;
   var customClassNames = _ref$customClassNames === undefined ? {} : _ref$customClassNames;
+
+  var answerClassName = (0, _classnames2.default)('rq-Answer', customClassNames['rq-Answer']);
+  var answerButtonClassName = (0, _classnames2.default)('rq-Answer-button', customClassNames['rq-Answer-button'], _defineProperty({ 'rq-Answer-button--active': active
+  }, customClassNames['rq-Answer-button--active'], active));
+
   return _react2.default.createElement(
     'li',
-    { className: (0, _classnames2.default)('rq-Answer', customClassNames['rq-Answer']) },
+    { className: answerClassName },
     _react2.default.createElement(
       'button',
       { onClick: onClick,
-        className: (0, _classnames2.default)('rq-Answer-button', customClassNames['rq-Answer-button'], _defineProperty({ 'rq-Answer-button--active': active
-        }, customClassNames['rq-Answer-button--active'], active)) },
+        className: answerButtonClassName },
       children
     )
   );

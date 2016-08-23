@@ -35,23 +35,31 @@ var Quiz = function Quiz(_ref) {
   var onAnswer = _ref.onAnswer;
   var onNext = _ref.onNext;
   var onFinish = _ref.onFinish;
-  var _ref$progressTextTemp = _ref.progressTextTemplate;
-  var progressTextTemplate = _ref$progressTextTemp === undefined ? 'Question {n} of {total}' : _ref$progressTextTemp;
   var _ref$customClassNames = _ref.customClassNames;
   var customClassNames = _ref$customClassNames === undefined ? {} : _ref$customClassNames;
+  var _ref$customText = _ref.customText;
+  var customText = _ref$customText === undefined ? {} : _ref$customText;
 
   var isLastQuestion = currentQuestionIndex + 1 === questions.length;
+
+  var progressTextClassName = (0, _classnames2.default)('rq-Quiz-progressText', customClassNames['rq-Quiz-progressText']);
+  var buttonContainerClassName = (0, _classnames2.default)('rq-Quiz-buttonContainer', customClassNames['rq-Quiz-buttonContainer']);
+  var nextButtonClassName = (0, _classnames2.default)('rq-Quiz-nextButton', customClassNames['rq-Quiz-nextButton']);
+
+  var finishButtonText = customText['rq-Quiz-nextButton--finish'] || 'Finish';
+  var nextButtonText = customText['rq-Quiz-nextButton'] || 'Next';
+  var progressText = (0, _interpolate2.default)(customText['rq-Quiz-progressText'] || 'Question {n} of {total}', {
+    n: currentQuestionIndex + 1,
+    total: questions.length
+  });
 
   return _react2.default.createElement(
     'div',
     null,
     _react2.default.createElement(
       'p',
-      null,
-      (0, _interpolate2.default)(progressTextTemplate, {
-        n: currentQuestionIndex + 1,
-        total: questions.length
-      })
+      { className: progressTextClassName },
+      progressText
     ),
     _react2.default.createElement(_ProgressBar2.default, { value: currentQuestionIndex + 1,
       max: questions.length,
@@ -62,21 +70,21 @@ var Quiz = function Quiz(_ref) {
     }, questions[currentQuestionIndex])),
     _react2.default.createElement(
       'div',
-      { className: (0, _classnames2.default)('rq-Quiz-buttonContainer', customClassNames['rq-Quiz-buttonContainer']) },
+      { className: buttonContainerClassName },
       isLastQuestion ? _react2.default.createElement(
         'button',
-        { className: (0, _classnames2.default)('rq-Quiz-nextButton', customClassNames['rq-Quiz-nextButton']),
+        { className: nextButtonClassName,
           onClick: function onClick() {
             return onFinish(answers);
           },
           disabled: answers[currentQuestionIndex] === undefined },
-        'Finish'
+        finishButtonText
       ) : _react2.default.createElement(
         'button',
-        { className: (0, _classnames2.default)('rq-Quiz-nextButton', customClassNames['rq-Quiz-nextButton']),
+        { className: nextButtonClassName,
           onClick: onNext,
           disabled: answers[currentQuestionIndex] === undefined },
-        'Next'
+        nextButtonText
       )
     )
   );

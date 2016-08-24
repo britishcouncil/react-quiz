@@ -5,12 +5,13 @@ import classNames from 'classnames'
 const Question = ({ instruction, text, answers, selectedAnswer, onAnswer,
   customClassNames = {} }) => {
   const instructionClassName = classNames('rq-Question-instruction', customClassNames['rq-Question-instruction'])
+  const textClassName = classNames('rq-Question-text', customClassNames['rq-Question-text'])
   const answerListClassName = classNames('rq-Question-answerList', customClassNames['rq-Question-answerList'])
 
   return (
     <div>
       <p className={instructionClassName}>{instruction}</p>
-      <p>{text}</p>
+      <p className={textClassName}>{text}</p>
       <ol className={answerListClassName}>
         {answers.map((a, i) => (
           <Answer customClassNames={customClassNames}

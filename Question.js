@@ -28,6 +28,7 @@ var Question = function Question(_ref) {
   var customClassNames = _ref$customClassNames === undefined ? {} : _ref$customClassNames;
 
   var instructionClassName = (0, _classnames2.default)('rq-Question-instruction', customClassNames['rq-Question-instruction']);
+  var textClassName = (0, _classnames2.default)('rq-Question-text', customClassNames['rq-Question-text']);
   var answerListClassName = (0, _classnames2.default)('rq-Question-answerList', customClassNames['rq-Question-answerList']);
 
   return _react2.default.createElement(
@@ -40,7 +41,7 @@ var Question = function Question(_ref) {
     ),
     _react2.default.createElement(
       'p',
-      null,
+      { className: textClassName },
       text
     ),
     _react2.default.createElement(

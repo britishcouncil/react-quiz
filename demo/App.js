@@ -8,6 +8,7 @@ import questions from './questions'
 const customClassNames = {
   'rq-Quiz-buttonContainer': '',
   'rq-Question-instruction': 'instruction',
+  'rq-Question-text': '',
   'rq-Question-answerList': 'answer-list',
   'rq-Answer': 'answer',
   'rq-Answer-button': 'btn bc-btn-gray-cool btn-lg bc-btn-square bc-btn-block answer-button',

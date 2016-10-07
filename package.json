@@ -1,6 +1,6 @@
 {
   "name": "react-quiz",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Quiz component",
   "scripts": {
     "start": "node server.js",
@@ -21,7 +21,7 @@
   "author": "British Council",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.14.0",
+    "ava": "^0.16.0",
     "babel-cli": "^6.10.1",
     "babel-core": "^6.0.20",
     "babel-eslint": "^4.1.3",

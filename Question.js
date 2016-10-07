@@ -31,6 +31,18 @@ var Question = function Question(_ref) {
   var textClassName = (0, _classnames2.default)('rq-Question-text', customClassNames['rq-Question-text']);
   var answerListClassName = (0, _classnames2.default)('rq-Question-answerList', customClassNames['rq-Question-answerList']);
 
+  var renderText = function renderText() {
+    var lines = Array.isArray(text) ? text : [text];
+
+    return lines.map(function (line, i) {
+      return _react2.default.createElement(
+        'p',
+        { key: i, className: textClassName, style: { margin: 0 } },
+        line
+      );
+    });
+  };
+
   return _react2.default.createElement(
     'div',
     null,
@@ -39,11 +51,7 @@ var Question = function Question(_ref) {
       { className: instructionClassName },
       instruction
     ),
-    _react2.default.createElement(
-      'p',
-      { className: textClassName },
-      text
-    ),
+    renderText(),
     _react2.default.createElement(
       'ol',
       { className: answerListClassName },
@@ -65,7 +73,7 @@ var Question = function Question(_ref) {
 
 Question.propTypes = {
   instruction: _react2.default.PropTypes.string,
-  text: _react2.default.PropTypes.string.isRequired,
+  text: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.array]).isRequired,
   answers: _react2.default.PropTypes.array.isRequired,
   selectedAnswer: _react2.default.PropTypes.number,
   onAnswer: _react2.default.PropTypes.func

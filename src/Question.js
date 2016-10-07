@@ -8,10 +8,18 @@ const Question = ({ instruction, text, answers, selectedAnswer, onAnswer,
   const textClassName = classNames('rq-Question-text', customClassNames['rq-Question-text'])
   const answerListClassName = classNames('rq-Question-answerList', customClassNames['rq-Question-answerList'])
 
+  const renderText = () => {
+    const lines = Array.isArray(text) ? text : [text]
+
+    return lines.map((line, i) =>
+      <p key={i} className={textClassName} style={{margin: 0}}>{line}</p>
+    )
+  }
+
   return (
     <div>
       <p className={instructionClassName}>{instruction}</p>
-      <p className={textClassName}>{text}</p>
+      {renderText()}
       <ol className={answerListClassName}>
         {answers.map((a, i) => (
           <Answer customClassNames={customClassNames}
@@ -26,7 +34,10 @@ const Question = ({ instruction, text, answers, selectedAnswer, onAnswer,
 
 Question.propTypes = {
   instruction: React.PropTypes.string,
-  text: React.PropTypes.string.isRequired,
+  text: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.array,
+  ]).isRequired,
   answers: React.PropTypes.array.isRequired,
   selectedAnswer: React.PropTypes.number,
   onAnswer: React.PropTypes.func

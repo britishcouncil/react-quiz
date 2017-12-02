@@ -3,6 +3,10 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import QuizContainer from '../src/QuizContainer'
 import questions from './_questions'
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
 
 const getQuiz = (w) => w.find('Quiz').shallow()
 const findQuestion = (w) => getQuiz(w).find('Question')

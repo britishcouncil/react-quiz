@@ -2,6 +2,10 @@ import test from 'ava'
 import React from 'react'
 import { shallow } from 'enzyme'
 import Answer from '../src/Answer'
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
 
 test('does not have the CSS class `active` by default', t => {
   const w = shallow(<Answer active={false}>An answer</Answer>)

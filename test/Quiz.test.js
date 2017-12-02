@@ -3,6 +3,10 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import Quiz from '../src/Quiz'
 import questions from './_questions'
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
 
 const findNextButton = (w) => w.findWhere(el => el.matchesElement(<button>Next</button>))
 const findFinishButton = (w) => w.findWhere(el => el.matchesElement(<button>Finish</button>))

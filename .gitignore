@@ -11,6 +11,7 @@ dist
 # IDE generated files #
 ###################
 .idea
+*.iml
 .project
 *.sublime-project
 *.sublime-workspace

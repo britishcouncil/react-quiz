@@ -22,9 +22,16 @@ class QuizContainer extends React.Component {
       }})
   }
 
-  onNext = () => this.setState({
-    currentQuestionIndex: this.state.currentQuestionIndex + 1
-  })
+  onNext = () => {
+    let onChange = this.props.onChange;
+    if(typeof onChange === "function"){
+        onChange();
+    }
+
+    this.setState({
+          currentQuestionIndex: this.state.currentQuestionIndex + 1
+      })
+  }
 
   render () {
     return <Quiz {...this.props}

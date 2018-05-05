@@ -33,7 +33,9 @@ export default class App extends Component {
         <QuizContainer customClassNames={customClassNames}
                        customText={customText}
                        questions={questions}
-                       onFinish={(answers) => console.log(answers)} />
+                       onFinish={(answers) => console.log(answers)}
+                       onChange={()=> console.log("Change")}
+        />
       </div>
     )
   }

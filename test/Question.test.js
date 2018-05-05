@@ -3,6 +3,10 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import Question from '../src/Question'
 import questions from './_questions.js'
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
 
 test('renders answers', t => {
   const question = questions[0]
